@@ -7,7 +7,7 @@
 
 Defang
 
-Defanging a URL will prevent the users from clicking a malicious link.
+Defanging a URL will prevent users from clicking a malicious link.
 
 This aims to defang URLs and IP addresses in one click.  
   
