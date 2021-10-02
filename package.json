@@ -2,8 +2,12 @@
   "name": "projects",
   "version": "0.0.0",
   "scripts": {
-    "serve:defang": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" serve --project defang",
-    "build:defang": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --project defang"
+    "serve:defang": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" serve",
+    "build:defang": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build",
+    "build:defang:git": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --base-href /defang/",
+
+    "serve:portfolio": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" serve --project portfolio",
+    "build:portfolio": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --project portfolio"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +41,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "lodash-es": "^4.17.21",
+    "ng-packagr": "^12.1.1",
     "tailwindcss": "latest",
     "typescript": "~4.3.5"
   }

@@ -1,6 +1,5 @@
 <div class="de-app-container">
   <div class="de-sidemenu-container">
-    <div class=""></div>
     <div class="flex w-full flex-col">
       <de-radio-buttons
         [items]="deradios"
@@ -12,6 +11,19 @@
         </div>
       </de-radio-buttons>
     </div>
+    <div class="pt-5">
+      <h1 class="text-2xl"> Defang </h1>
+      <p class="text-lg">
+        Defanging a URL will prevent the users from clicking a malicious link.
+        This aims to defang URLs and IP addresses in one click.
+      </p>
+    </div>
+    <h1 class="text-2xl pt-5"> Refang </h1>
+    <p class="text-lg">
+      In a security setup where these malicious URLs and IP addresses will be added to blocking, the true URLs and IPs need to be refanged.
+      This replaces the defanged content and reverts to the original state of the URL/IP.
+      In communicating via email containing malicious links, it is recommended to defang malicious indicators, however in instances where further analysis and investigation is needed on the malicous indicators, a defanged URL/IP is
+    </p>
   </div>
   <!-- .side-menu -->
   <div class="h-full w-5/5 box-border flex w-full flex-col">

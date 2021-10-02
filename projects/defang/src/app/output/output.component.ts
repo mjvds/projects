@@ -3,7 +3,7 @@ import { Component, ElementRef, Inject, Input, ViewChild } from '@angular/core';
 
 const TEMPLATE = `
   <div class="container" #container [innerHTML]="value"></div>
-  <input #clipboardInput style="position: fixed; top: -9999px;">
+  <textarea #clipboardInput style="position: fixed; top: -9999px;"></textarea>
   <div class="hover-info">Click to copy</div>
 `;
 

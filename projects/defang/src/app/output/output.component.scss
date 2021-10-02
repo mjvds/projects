@@ -6,7 +6,7 @@
 
 :host {
   @include v.de-scroll-style;
-  @apply  h-full w-full relative bg-white p-5 shadow-lg box-border max-h-full overflow-y-scroll overflow-x-hidden mt-5 cursor-pointer;
+  @apply  h-full w-full relative bg-white p-5 shadow-lg box-border max-h-full overflow-y-scroll overflow-x-hidden mt-5 cursor-pointer max-w-full;
 }
 
 :host, .container {
