@@ -1,0 +1,36 @@
+@use "../../styles/variables" as v;
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:host {
+  @include v.de-scroll-style;
+  @apply  h-full w-full relative bg-white p-5 shadow-lg box-border max-h-full overflow-y-scroll overflow-x-hidden mt-5 cursor-pointer;
+}
+
+:host, .container {
+  @apply flex h-full w-full;
+}
+
+.container {
+  @apply text-xl relative;
+}
+
+:host:hover .hover-info {
+  transform: translateY(0px);
+  @apply opacity-100;
+}
+
+.hover-info {
+  -webkit-transition: transform .2s cubic-bezier(0.35, 0, 0.25, 1);
+  -moz-transition: transform .2s cubic-bezier(0.35, 0, 0.25, 1);
+  -ms-transition: transform .2s cubic-bezier(0.35, 0, 0.25, 1);
+  -o-transition: transform .2s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform .2s cubic-bezier(0.35, 0, 0.25, 1);
+  @apply absolute text-lg opacity-0;
+  transform: translateY(-50px);
+  right: 10px;
+  top: 10px;
+}
+

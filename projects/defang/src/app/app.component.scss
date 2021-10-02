@@ -1,0 +1,33 @@
+@use "../styles/variables" as v;
+@use "../styles/mixins" as m;
+
+:host {
+  @apply p-0 m-0 h-full w-full box-border flex;
+}
+
+textarea {
+  @include v.de-scroll-style;
+}
+
+.de-app-container {
+  @apply lg:p-10 sm:p-0 md:p-0 flex w-screen h-screen box-border;
+}
+
+.topmenu {
+  @apply lg:hidden sm:block md:block;
+}
+
+.de-btn {
+  @apply w-full p-1 text-lg rounded-sm bg-blue-500 text-gray-50 tracking-wide;
+  @include m.padding-transition;
+}
+
+.de-sidemenu-container {
+  @apply h-full box-border flex w-96 flex-col box-border sm:pr-0 md:pr-0 lg:pr-4;
+  // hide side menu on table and mobile
+  // @apply hidden lg:flex;
+}
+
+.de-radio-item {
+  letter-spacing: 3px;
+}

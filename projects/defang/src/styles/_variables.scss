@@ -1,0 +1,19 @@
+@mixin de-scroll-style {
+  & {
+    scrollbar-width: thin;
+    scrollbar-color: #9CA3AF;
+  }
+
+  /* Works on Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #D1D5DB;
+  }
+}

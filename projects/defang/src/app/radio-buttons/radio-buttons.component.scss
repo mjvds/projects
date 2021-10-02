@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as m;
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+::ng-deep {
+  .de-radio-item:not(:first-child) {
+    margin-top: 5px;
+  }
+
+  .de-radio-item:not(.de-radio-selected) {
+    @include m.button-primary-raised;
+  }
+
+  .de-radio-item.de-radio-selected {
+    @include m.button-primary-flat;
+  }
+}

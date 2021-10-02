@@ -1,0 +1,117 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "defang": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/defang",
+      "sourceRoot": "projects/defang/src",
+      "prefix": "de",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/defang",
+            "index": "projects/defang/src/index.html",
+            "main": "projects/defang/src/main.ts",
+            "polyfills": "projects/defang/src/polyfills.ts",
+            "tsConfig": "projects/defang/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/defang/src/favicon.ico",
+              "projects/defang/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "projects/defang/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/defang/src/environments/environment.ts",
+                  "with": "projects/defang/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "defang:build:production"
+            },
+            "development": {
+              "browserTarget": "defang:build:development",
+              "port": 4200
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "defang:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/defang/src/test.ts",
+            "polyfills": "projects/defang/src/polyfills.ts",
+            "tsConfig": "projects/defang/tsconfig.spec.json",
+            "karmaConfig": "projects/defang/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/defang/src/favicon.ico",
+              "projects/defang/src/assets"
+            ],
+            "styles": [
+              "projects/defang/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
+        }
+      }
+    }
+  },
+  "defaultProject": "defang"
+}
