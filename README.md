@@ -2,15 +2,10 @@
   My Personal Projects
 </h1>
 
-<h2>
-  Defang and Refang
-</h2>
+<h2>Defang and Refang</h2>
 <p>
   Defang means, the HTML part of the URL is “changed” but still readable for the human eye.
 </p>
-
-
-<h2>Defang and Refang</h2>
 <h3>
   Tools
 </h3>
