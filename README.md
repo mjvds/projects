@@ -21,7 +21,7 @@ To defang a URL,
 
 Refang
 
-In a security steup where these malicious URLs and IP addresses will be added to blocking,the true URLs and IPs need to be refanged.
+In a security setup where these malicious URLs and IP addresses will be added to blocking,the true URLs and IPs need to be refanged.
 This replaces the defanged content and reverts to the original state of the URL/IP.
 
 In communicating via email containing malicious links, it is recommended to defang malicious indicators, however in instances where further analysis and investigation is needed on the malicous indicator, a defanged URL/IP is nedded.
