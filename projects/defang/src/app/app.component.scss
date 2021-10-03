@@ -1,6 +1,20 @@
 @use "../styles/variables" as v;
 @use "../styles/mixins" as m;
 
+::ng-deep {
+  .de-radio-item {
+    letter-spacing: 3px;
+  }
+
+  .top-menu .de-radio-item {
+    @apply flex-grow;
+  }
+
+  .top-menu .de-radio-item:not(:last-child) {
+    margin-right: 10px !important;
+  }
+}
+
 :host {
   @apply p-0 m-0 h-full w-full box-border flex;
 }
@@ -9,12 +23,12 @@ textarea {
   @include v.de-scroll-style;
 }
 
-.de-app-container {
-  @apply lg:p-10 sm:p-0 md:p-0 flex w-screen h-screen box-border;
+.top-menu {
+  @apply h-28 mb-4;
 }
 
-.topmenu {
-  @apply lg:hidden sm:block md:block;
+.de-app-container {
+  @apply lg:p-10 sm:p-0 md:p-0 flex w-screen h-screen box-border;
 }
 
 .de-btn {
@@ -23,11 +37,5 @@ textarea {
 }
 
 .de-sidemenu-container {
-  @apply h-full box-border flex w-96 flex-col box-border sm:pr-0 md:pr-0 lg:pr-4;
-  // hide side menu on table and mobile
-  // @apply hidden lg:flex;
-}
-
-.de-radio-item {
-  letter-spacing: 3px;
+  @apply h-full box-border w-96 flex-col box-border pr-4;
 }

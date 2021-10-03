@@ -12,3 +12,13 @@ body {
   color: red;
   text-decoration: underline;
 }
+
+// hide on mobile and tablet
+.hide-on-device {
+  @apply lg:flex hidden;
+}
+
+// show on mobile and tablet
+.show-on-device {
+  @apply lg:hidden flex;
+}

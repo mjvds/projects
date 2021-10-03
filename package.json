@@ -4,10 +4,13 @@
   "scripts": {
     "serve:defang": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" serve",
     "build:defang": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build",
-    "build:defang:git": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --base-href /defang/",
+    "build:defang:git": "NODE_ENV=production node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --prod",
 
     "serve:portfolio": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" serve --project portfolio",
-    "build:portfolio": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --project portfolio"
+    "build:portfolio": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --project portfolio",
+
+    "build:widgets": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --watch",
+    "test:widgets": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" test --project widgets"
   },
   "private": true,
   "dependencies": {

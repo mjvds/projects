@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
-import { RadioButtonItem } from './radio-buttons/radio-buttons.component';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { RadioButtonItem, RadioButtonsComponent } from '@de/components/radio-buttons/radio-buttons.component';
 
 export type TDEFANG = {
   /**
@@ -19,6 +19,11 @@ interface DefangItem {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+
+  @ViewChild('radioSidemenu') radioSidemenu?: RadioButtonsComponent;
+
+  @ViewChild('radioTopmenu') radioTopmenu?: RadioButtonsComponent;
+
   deradios: RadioButtonItem[] = [
     {
       label: 'DEFANG',

@@ -11,10 +11,7 @@ import debounce from 'lodash-es/debounce';
 export class DebounceDirective {
   @Output() deDebounce = new EventEmitter<HTMLElement>();
 
-  private _debounce = debounce(() => {
-    this.deDebounce.emit(this._el.nativeElement);
-    console.log(this);
-  }, 500);
+  private _debounce = debounce(() => this.deDebounce.emit(this._el.nativeElement), 500);
 
   @HostListener('keydown', ['$event'])
   keydown(e: any) { this._debounce(); }

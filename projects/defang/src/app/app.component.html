@@ -1,7 +1,8 @@
 <div class="de-app-container">
-  <div class="de-sidemenu-container">
+  <div class="de-sidemenu-container hide-on-device">
     <div class="flex w-full flex-col">
       <de-radio-buttons
+        #radioSidemenu
         [items]="deradios"
         [(value)]="actionType"
         (onValueChanged)="onRadioValueChanged(textArea)"
@@ -27,15 +28,24 @@
   </div>
   <!-- .side-menu -->
   <div class="h-full w-5/5 box-border flex w-full flex-col">
-    <div class="topmenu">
-      top menu
+    <div class="top-menu show-on-device box-border flex items-center p-2 justify-center">
+      <de-radio-buttons
+        #radioTopmenu
+        [items]="deradios"
+        [(value)]="actionType"
+        (onValueChanged)="onRadioValueChanged(textArea)"
+        >
+        <div *deRadioButton="let d">
+          {{ d.label }}
+        </div>
+      </de-radio-buttons>
     </div><!-- .topmenu -->
     <div class="w-ful flex-startl shadow-lg box-border">
       <textarea
         #textArea
         class="w-full max-h-96 outline-none text-xl p-5 resize-none"
         rows="10"
-        placeholder="URLs"
+        placeholder="Enter Urls to defang or Refang ex. https://example.com"
         (deDebounce)="onValueChanged(textArea)"
         (paste)="onValueChanged(textArea)"
       ></textarea>

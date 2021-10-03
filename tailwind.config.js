@@ -5,7 +5,10 @@ module.exports = {
     purge: {
       enabled: guessProductionMode(),
       content: [
-        './src/**/*.{html,ts}',
+        // './src/**/*.{html,ts}',
+        './projects/defang/src/**/*.{html,ts}',
+        './projects/portfolio/src/**/*.{html,ts}',
+        './projects/widgets/**/*.{html,ts}'
       ]
     },
     darkMode: 'class', // or 'media' or 'class'

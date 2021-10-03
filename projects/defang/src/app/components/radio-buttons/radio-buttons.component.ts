@@ -1,6 +1,7 @@
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     ContentChild,
     Directive, EmbeddedViewRef,
@@ -31,7 +32,7 @@ export const DE_RADIO_ITEM_CLASS = 'de-radio-item';
 @Directive({ selector: '[deRadioButton]' })
 export class RadioButtonDirective {
 
-  @Input() set deRadioButtonOf(name: string) {}
+  @Input() set deRadioButtonOf(name: string) { }
 
   constructor(
     public template: TemplateRef<any>,
@@ -49,7 +50,19 @@ export class RadioButtonsComponent implements AfterViewInit {
 
   @Output() onValueChanged = new EventEmitter<RadioButtonSelectedItem>();
 
-  @Input() value: any = null; 
+  private _value: any = null;
+  @Input()
+    set value(value: any) {
+      if (this._value === value) return;
+      this._value = value;
+
+      // if value is changed without clicking at the button
+      if (this._selectedItem?.item?.value !== value) {
+        // update the UI
+        this._selectItemByValue(value);
+      }
+    }
+    get value() { return this._value; }
   @Output() valueChange = new EventEmitter<any>();
 
   private _clickUnlisteners: Function[] = [];
@@ -60,7 +73,11 @@ export class RadioButtonsComponent implements AfterViewInit {
 
   @Input() items: RadioButtonItem[] | null = null;
 
-  constructor(private _renderer: Renderer2, private _viewContainer: ViewContainerRef) {}
+  constructor(
+    private _renderer: Renderer2,
+    private _viewContainer: ViewContainerRef,
+    public cdr: ChangeDetectorRef
+  ) {}
 
   ngAfterViewInit(): void {
     this._renderItems();
@@ -86,6 +103,16 @@ export class RadioButtonsComponent implements AfterViewInit {
         this._selectItem(el, item)
       }
     });
+  }
+
+  private _selectItemByValue(value: any): void {
+    if (!this._renderedRadioButtons.length || !this.items?.length) return;
+    const index = this.items?.findIndex(a => a.value === value);
+    if (index !== -1) {
+      // update the UI
+      // @ts-ignore-next
+      this._selectItem(this._renderedRadioButtons[index].rootNodes[0], this.items[index]);
+    }
   }
 
   private _attachClick(el: HTMLElement, item: any): void {

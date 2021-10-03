@@ -1,8 +1,4 @@
-@use "../../styles/mixins" as m;
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@use "../../../styles/mixins" as m;
 
 ::ng-deep {
   .de-radio-item:not(:first-child) {

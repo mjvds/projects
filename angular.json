@@ -31,7 +31,6 @@
               "projects/defang/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/defang/src/styles.scss"
             ],
             "scripts": []
@@ -116,7 +115,7 @@
       "projectType": "library",
       "root": "projects/widgets",
       "sourceRoot": "projects/widgets/src",
-      "prefix": "lib",
+      "prefix": "lb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -155,7 +154,7 @@
       },
       "root": "projects/portfolio",
       "sourceRoot": "projects/portfolio/src",
-      "prefix": "app",
+      "prefix": "po",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
