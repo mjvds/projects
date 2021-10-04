@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
-import { RadioButtonItem, RadioButtonsComponent } from '@de/components/radio-buttons/radio-buttons.component';
+import { RadioButtonItem, RadioButtonsComponent } from '@widgets/radio-buttons';
 
 export type TDEFANG = {
   /**

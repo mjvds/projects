@@ -1,9 +1,12 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RadioButtonsComponent } from '../src/radio-buttons';
 
 describe('RadioButtonsComponent', () => {
-  let component: RadioButtonsComponent;
-  let fixture: ComponentFixture<RadioButtonsComponent>;
+  let component: RadioButtonsComponent,
+      fixture: ComponentFixture<RadioButtonsComponent>,
+      debugElement: DebugElement;
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,22 +19,11 @@ describe('RadioButtonsComponent', () => {
     fixture = TestBed.createComponent(RadioButtonsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-
+    debugElement = fixture.debugElement;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should render radio items', () => {
-    component.items = [{
-      label: 'first',
-      value: 'first'
-    }, {
-      label: 'second',
-      value: 'second'
-    }];
   });
 
 });

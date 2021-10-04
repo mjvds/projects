@@ -10,6 +10,7 @@ import {
     Renderer2,
     TemplateRef,
     ViewContainerRef,
+    ViewEncapsulation,
 } from '@angular/core';
 
 export interface RadioButtonItem {
@@ -35,13 +36,15 @@ export class RadioButtonDirective {
 }
 
 @Component({
-  selector: 'de-radio-buttons',
+  selector: 'lb-radio-buttons',
   template: '<ng-content>',
-  styleUrls: ['./radio-buttons.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  exportAs: 'lbRadioButton',
+  styles: [''],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class RadioButtonsComponent implements AfterViewInit {
-  @ContentChild(RadioButtonDirective, { static: false }) radioButton?: RadioButtonDirective;
+  @ContentChild(RadioButtonDirective, { static: false }) radioButtonTemplate?: RadioButtonDirective;
 
   @Output() onValueChanged = new EventEmitter<RadioButtonSelectedItem>();
 
@@ -50,7 +53,6 @@ export class RadioButtonsComponent implements AfterViewInit {
     set value(value: any) {
       if (this._value === value) return;
       this._value = value;
-
       // if value is changed without clicking at the button
       if (this._selectedItem?.item?.value !== value) {
         // update the UI
@@ -58,7 +60,6 @@ export class RadioButtonsComponent implements AfterViewInit {
       }
     }
     get value() { return this._value; }
-
   @Output() valueChange = new EventEmitter<any>();
 
   private _clickUnlisteners: Function[] = [];
@@ -85,7 +86,8 @@ export class RadioButtonsComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    // this._renderItems();
+    const ITEMS_ARE_NOT_RENDERED = this.radioButtonTemplate && !this._renderedRadioButtons.length;
+    if (ITEMS_ARE_NOT_RENDERED) { this._renderItems(); }
   }
 
   private _renderItems(): void {
@@ -94,10 +96,10 @@ export class RadioButtonsComponent implements AfterViewInit {
       this._renderedRadioButtons.forEach((a) => a.destroy());
     }
     this.items?.forEach((item, index) => {
-      if (!this.radioButton) return;
+      if (!this.radioButtonTemplate) return;
       // template context
       const context = { $implicit: item },
-            viewRef = this._viewContainer.createEmbeddedView(this.radioButton.template, context, index);
+            viewRef = this._viewContainer.createEmbeddedView(this.radioButtonTemplate.template, context, index);
       if (viewRef) { this._renderedRadioButtons.push(viewRef); }
 
       const el = viewRef.rootNodes[0];

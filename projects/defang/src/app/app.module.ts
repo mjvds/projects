@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { DebounceDirective } from './directives/debounce.directive';
 import { OutputComponent } from '@de/components/output/output.component';
-import { RadioButtonsModule } from '@de/components/radio-buttons/radio-buttons.module';
+import { RadioButtonsModule } from '@widgets/radio-buttons';
 
 @NgModule({
   declarations: [

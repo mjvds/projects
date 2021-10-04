@@ -1,16 +1,16 @@
 <div class="de-app-container">
   <div class="de-sidemenu-container hide-on-device">
     <div class="flex w-full flex-col">
-      <de-radio-buttons
+      <lb-radio-buttons
         #radioSidemenu
         [items]="deradios"
         [(value)]="actionType"
         (onValueChanged)="onRadioValueChanged(textArea)"
         >
-        <div *deRadioButton="let d">
+        <div *lbRadioButton="let d">
           {{ d.label }}
         </div>
-      </de-radio-buttons>
+      </lb-radio-buttons>
     </div>
     <div class="pt-5">
       <h1 class="text-2xl"> Defang </h1>
@@ -29,16 +29,16 @@
   <!-- .side-menu -->
   <div class="h-full w-5/5 box-border flex w-full flex-col">
     <div class="top-menu show-on-device box-border flex items-center p-2 justify-center">
-      <de-radio-buttons
+      <lb-radio-buttons
         #radioTopmenu
         [items]="deradios"
         [(value)]="actionType"
         (onValueChanged)="onRadioValueChanged(textArea)"
         >
-        <div *deRadioButton="let d">
+        <div *lbRadioButton="let d">
           {{ d.label }}
         </div>
-      </de-radio-buttons>
+      </lb-radio-buttons>
     </div><!-- .topmenu -->
     <div class="w-ful flex-startl shadow-lg box-border">
       <textarea

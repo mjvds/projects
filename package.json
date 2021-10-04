@@ -9,7 +9,7 @@
     "serve:portfolio": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" serve --project portfolio",
     "build:portfolio": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --project portfolio",
 
-    "build:widgets": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --watch",
+    "build:widgets": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" build --watch --project widgets",
     "test:widgets": "node --max_old_space_size=4000 \"node_modules/@angular/cli/bin/ng\" test --project widgets"
   },
   "private": true,

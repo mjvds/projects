@@ -20,9 +20,8 @@
       "dom"
     ],
     "paths": {
-      "@widgets": [
-        "dist/widgets/widgets",
-        "dist/widgets"
+      "@widgets/*": [
+        "dist/widgets/*"
       ],
       "@de/*": [
         "projects/defang/src/app/*"

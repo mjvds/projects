@@ -2,17 +2,30 @@
 @use "../styles/mixins" as m;
 
 ::ng-deep {
-  .de-radio-item {
+  .lb-radio-item {
     letter-spacing: 3px;
   }
 
-  .top-menu .de-radio-item {
+  .top-menu .lb-radio-item {
     @apply flex-grow;
   }
 
-  .top-menu .de-radio-item:not(:last-child) {
+  .top-menu .lb-radio-item:not(:last-child) {
     margin-right: 10px !important;
   }
+
+  .lb-radio-item:not(:first-child) {
+    margin-top: 5px;
+  }
+
+  .lb-radio-item:not(.lb-radio-selected) {
+    @include m.button-primary-raised;
+  }
+
+  .lb-radio-item.lb-radio-selected {
+    @include m.button-primary-flat;
+  }
+
 }
 
 :host {
